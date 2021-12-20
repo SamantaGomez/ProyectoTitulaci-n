@@ -1,0 +1,12 @@
+footer {
+  position: fixed;
+  bottom: 0; 
+  width: 100%;
+  }
+  .t1{
+    color: #0c2772;
+    font: oblique bold 150% cursive;
+}
+.log{
+  margin-left: 50px;
+}

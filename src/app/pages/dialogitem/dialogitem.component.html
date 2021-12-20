@@ -1,0 +1,32 @@
+<h2>Añadir producto</h2>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card text-center">
+                <div class="card-body" style="background-color: #dbdbdb;">
+                    <form class="mt-4"> 
+                        
+                        <div class="row">
+                            <label for="">Seleccione Producto:</label>
+                            <div class="col">
+                                <select class="form-control-lg" placeholder="Producto" [(ngModel)]="productoseleccionado"
+                                    style="width: 100%;"  name="producto">
+                                    <option *ngFor="let Producto of listaproductos" value="{{Producto| json}}"> 
+                                        {{Producto.descripcion}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="mt-4">
+                            <button class="btn" (click)="agregar()" class="btn btn-outline-danger my-3 my-sm-0">Agregar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

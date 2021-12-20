@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row justify-content-center p-4">
+
+        <div class="col-md-6">
+            <form (ngSubmit)="login()">
+                <p></p><br>
+                <h3 style="margin-left: 30%;" class="t1">INICIAR SESIÓN</h3>
+                <img class="log" src="/assets/img/logo.png" alt="..">
+                <br><br>
+                <div class="row">
+                    <div class="col-2">
+                        <i class="fas fa-envelope" style="font-size: 25px; color: rgb(182, 33, 33); margin-left: 75%; margin-top: 5px;"></i>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group" style="width: 350px;">
+                            
+                            <input type="email" name="email" class="form-control" [(ngModel)]="email"
+                                placeholder="Ingrese su correo electrónico" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <i class="fas fa-key" style="font-size: 25px; color: rgb(182, 33, 33); margin-left: 75%; margin-top: 5px;"></i>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group" style="width: 350px;">
+                            <input type="password" name="password" class="form-control" [(ngModel)]="password"
+                        placeholder="Ingrese su contraseña" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group p-2">
+                    <button type="submit" class="btn btn-outline-danger my-3 my-sm-0" style="margin-left: 35%;">Iniciar
+                        Sesión</button>
+                    <!-- <div class="register"><a href="#" routerLink="/register">Registrar nuevo usuario</a></div> -->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<footer class="bg-red text-center text-white">
+    <div class="text-center p-3" style="background-color: rgb(163, 14, 14);">
+        © 2021
+        <a class="text-white" href="https://mdbootstrap.com/">LubricarSG</a>
+    </div>
+</footer>

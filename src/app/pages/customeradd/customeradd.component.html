@@ -1,0 +1,69 @@
+<nav class="navbar bg-red text-center text-white" style="background-color: rgb(163, 14, 14);">
+    <span class="navbar-brand mb-0 h1">Clientes</span>
+    <form class="form-inline">
+        <button class="btn btn-outline-light my-3 my-sm-0" routerLink="/customerlist">Regresar</button>
+    </form>
+</nav>
+
+<body class="bodys">
+    <div class="container pt-4">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="card text-center">
+                    <div class="card-body" style="background-color: #dbdbdb;">
+                        <h3 style="font-size:25px;">{{ titulo }}
+                            <div *ngIf="loading" class="spinner-border text-danger float-right" role="status">
+                                <span class="visually-hidden">Cargando...</span>
+                              </div>
+                        </h3>
+                        <span *ngIf="submitted && createCliente.invalid" class="badge badge-danger">TODOS LOS CAMPOS SON OBLIGATORIOS</span>
+                        <form class="mt-4" [formGroup]="createCliente" (ngSubmit)="agregarEditarCliente()"> 
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control form-control-lg"
+                                        formControlName="razonsocial" placeholder="Razon Social">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col">
+                                    <input type="number" class="form-control form-control-lg" formControlName="ruc"
+                                        placeholder="RUC">
+                                </div>
+                                <div class="col">
+                                    <input type="number" class="form-control form-control-lg"
+                                        formControlName="telefono" placeholder="Telefono">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control form-control-lg" formControlName="direccion"
+                                        placeholder="Dirección">
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control form-control-lg"
+                                        formControlName="correo" placeholder="Correo Electrónico">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="mt-4">
+                                <button type="text" class="btn btn-outline-danger my-3 my-sm-0" style="margin: 10px"
+                                    routerLink="/customerlist">Regresar</button>
+
+                                <button type="submit" class="btn btn-outline-danger my-3 my-sm-0"
+                                    style="margin: 10px">Agregar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<footer class="bg-red text-center text-white" style="height: 35px; width: 100%;">
+    <div class="text-center p-2" style="background-color: rgb(163, 14, 14); ">
+        © 2021
+        <a class="text-white" href="https://mdbootstrap.com/" style="margin-top: 5px;">LubricarSG</a>
+    </div>
+</footer>

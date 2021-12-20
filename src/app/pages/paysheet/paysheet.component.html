@@ -1,0 +1,54 @@
+<nav class="navbar bg-red text-center text-white" style="background-color: rgb(163, 14, 14);">
+    <span class="navbar-brand mb-0 h1">Usuarios</span>
+    <form class="form-inline">
+      <button class="btn btn-outline-light my-3 my-sm-0" routerLink="/userinfo">Regresar</button>
+    </form>
+  </nav>
+  <br>
+  <body>
+    <div class="container-fluid">
+      <div class="card" style="background-color: #dbdbdb;">
+        <div class="card-body">
+          <span class="h3">Listado de Usuarios</span>
+          <button class="btn btn-outline-danger btn-lg float-right" routerLink="/register">Agregar</button>
+          <h5 style="margin-top: 30px;" *ngIf="empleados.length == 0">No hay datos para mostrar</h5>
+          <table *ngIf="empleados.length > 0" class="table table-striped mt-5">
+            <thead>
+              <tr>
+                <th>Fecha de ingreso</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Cédula</th>
+                <th>Edad</th>
+                <th>Dirección</th>
+                <th>Teléfono</th>
+                <th>Correo electrónico</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr  *ngFor="let empleado of empleados">
+                <td>{{ empleado.fechaingreso}}</td>
+                <td>{{ empleado.nombres}}</td>
+                <td>{{ empleado.apellidos}}</td>
+                <td>{{ empleado.cedula}}</td>
+                <td>{{ empleado.edad}}</td>
+                <td>{{ empleado.direccion}}</td>
+                <td>{{ empleado.telefono}}</td>
+                <td>{{ empleado.email}}</td>
+                <td>
+                  <i class="fas fa-edit fa-lg text-info mr-2" [routerLink]="['/register/', empleado]"></i>
+                  <i (click)="eliminarEmpleado(empleado.id)" class="fas fa-trash-alt fa-lg text-danger"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+  <footer class="bg-red text-center text-white" style="height: 35px; width: 100%;">
+    <div class="text-center p-2" style="background-color: rgb(163, 14, 14); ">
+        © 2021
+        <a class="text-white" href="https://mdbootstrap.com/" style="margin-top: 5px;">LubricarSG</a>
+    </div>
+</footer>

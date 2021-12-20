@@ -1,0 +1,161 @@
+<nav class="navbar bg-red text-center text-white" style="background-color: rgb(163, 14, 14);">
+    <span class="navbar-brand mb-0 h1">Ventas</span>
+    <form class="form-inline">
+        <button class="btn btn-outline-light my-3 my-sm-0" routerLink="/saleslist">Regresar</button>
+    </form>
+</nav>
+
+<body class="bodys">
+    <div class="container pt-4">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="card text-center">
+                    <div class="card-body" style="background-color: #dbdbdb;">
+                        <h3 style="font-size:25px;">{{ titulo }}
+                            <!-- <div *ngIf="loading" class="spinner-border text-danger float-right" role="status">
+                                <span class="visually-hidden">Cargando...</span>
+                            </div> -->
+                        </h3>
+                        <!-- <span *ngIf="submitted && createVenta.invalid" class="badge badge-danger">TODOS LOS CAMPOS SON
+                            OBLIGATORIOS</span> -->
+                        <!-- <form class=""> -->
+                            <div class="row">
+                                <div class="col-4"></div>
+                                <div class="col-3"></div>
+                                <div class="col-5">
+                                    <input type="text" class="form-control form-control-lg" [(ngModel)]="fechaactual" disabled>                                  
+                                </div>
+                            </div>
+                            <br> 
+                            <div class="row">
+                                <div class="col-4" style="text-align: right;">
+                                    <span style="padding-top: 15px; display:block">Cédula Cliente:</span>
+                                </div> 
+                                <div class="col-5"> 
+                                    <input type="text" class="form-control form-control-lg" placeholder="Cédula Cliente" [(ngModel)]="cedulacliente"> <br>
+                                </div>
+                                <div class="col-3">
+                                    <button class="btn btn-outline-danger my-2 my-sm-0" (click)="buscarcliente()" style="margin-top: 20px; margin-right: 40%; display:block"> Buscar</button>
+                                </div> 
+                            </div>
+                            
+                             <div class="row">
+                                <div class="col-6"> 
+                                    <span>Cliente:</span>
+                                    <input type="text" class="form-control form-control-lg" [(ngModel)]="nombrecliente" disabled>
+                                </div>
+                                <div class="col-6">
+                                    <span>Dirección:</span>
+                                    <input type="text" class="form-control form-control-lg" [(ngModel)]="direccion"  disabled>                                  
+                                </div> 
+                            </div>
+                            <br>
+                            
+                            <label for="">Seleccione los productos y servicios que desea añadir</label>
+                            <br>
+
+                            <!-- ******************************************************************* -->
+                            <div class="row">
+                                <div class="col">
+                                    <button class="btn btn-outline-danger my-2 my-sm-0" (click)="agregarproductos()"
+                                        style="width: 180px;margin-left: 50%;"><i class="fas fa-plus"></i> Agregar producto</button>
+                                </div>
+                                <div class="col">
+                                    <button class="btn btn-outline-danger my-2 my-sm-0" (click)="agregarservicios()"
+                                    style="width: 180px; margin-right: 50%;"><i class="fas fa-plus"></i> Agregar servicio</button>
+                                </div>
+                            </div>
+                            <br>
+                            <div style="border: 1px solid #000000; border-radius: 5px; padding: 5px 14px 5px 14px;">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <span>Descripción:</span>
+                                        <input type="text" disabled class="mat-imput" style="width: 100%;" [(ngModel)]="productoseleccionado.descripcion">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <span>Precio U.:</span>
+                                        <input type="text" disabled class="mat-imput" style="width: 100%;" [(ngModel)]="productoseleccionado.precioventa">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <span>Stock:</span>
+                                        <input type="text" disabled class="mat-imput" style="width: 100%;" [(ngModel)]="stock">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <span>Cantidad:</span>
+                                        <input type="number" class="mat-imput" style="width: 100%;" [(ngModel)]="cantidadt" name="cantidadt">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <span>Total:</span>
+                                        <input type="text" disabled class="mat-imput" style="width: 100%;" [(ngModel)]="totalproducto" >
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-sm-8"></div>
+                                    <div class="col-sm-2">
+                                        <button class="btn btn-outline-danger my-3 my-sm-0" (click)="addProducto()" *ngIf="showadd">Añadir</button>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <button class="btn btn-outline-danger my-3 my-sm-0" (click)="Calcular()" *ngIf="showcalcular">Calcular</button>
+                                    </div>
+                                </div>
+                                <br>
+                            </div>
+                            <!-- ******************************************************************* -->
+                            <div class="card-body">
+                                <table class="table table-striped ">
+                                    <thead>
+                                        <tr>
+                                            <th>Cantidad</th>
+                                            <th>Descripción</th>
+                                            <th>Precio</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let productos of listaitems">
+                                            <td>{{productos.cantidad}}</td>
+                                            <td>{{productos.descripcion}}</td>
+                                            <td>{{productos.totalglobal}}</td>
+                                            <td>
+                                                <i (click)="eliminaritem(productos)" class="fas fa-trash-alt fa-lg text-danger"></i>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- ******************************************************************* -->
+                            <div class="row">
+                                <div class="col">
+                                </div>
+                                <div class="col" style="margin-right: 25px;">
+                                    <div class="input-group ">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-sm">TOTAL: $</span>
+                                        </div>
+                                        <input type="text" class="form-control form-control-lg"
+                                            [(ngModel)]="totalnotaventa" disabled> 
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div>
+                                <button type="text" class="btn btn-outline-danger my-3 my-sm-0" style="margin: 10px"
+                                    routerLink="/saleslist">Regresar</button>
+
+                                <button type="submit" class="btn btn-outline-danger my-3 my-sm-0"
+                                    style="margin: 10px" (click)="guardarventa()">Agregar</button>
+                            </div>
+                            <br><br>
+                        <!-- </form> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<footer class="bg-red text-center text-white" style="height: 35px; width: 100%;">
+    <div class="text-center p-2" style="background-color: rgb(163, 14, 14); ">
+        © 2021
+        <a class="text-white" href="https://mdbootstrap.com/" style="margin-top: 5px;">LubricarSG</a>
+    </div>
+</footer>

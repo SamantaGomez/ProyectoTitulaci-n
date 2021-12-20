@@ -1,0 +1,48 @@
+<nav class="navbar bg-red text-center text-white" style="background-color: rgb(163, 14, 14);">
+    <span class="navbar-brand mb-0 h1">Proveedores</span>
+    <form class="form-inline">
+      <button class="btn btn-outline-light my-3 my-sm-0" routerLink="/userinfo">Regresar</button>
+    </form>
+  </nav>
+  
+  <body>
+    <div class="container mt-4">
+      <div class="card" style="background-color: #dbdbdb;">
+        <div class="card-body">
+          <span class="h3">Listado de Proveedores</span>
+          <button class="btn btn-outline-danger btn-lg float-right" routerLink="/provideradd">Agregar</button>
+          <h5 style="margin-top: 30px;" *ngIf="proveedores.length == 0">No hay datos para mostrar</h5>
+          <table *ngIf="proveedores.length > 0" class="table table-striped mt-5">
+            <thead>
+              <tr>
+                <th>Razón social</th>
+                <th>RUC</th>
+                <th>Dirección</th>
+                <th>Teléfono</th>
+                <th>Correo electrónico</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr  *ngFor="let proveedor of proveedores">
+                <td>{{ proveedor.razonsocial}}</td>
+                <td>{{ proveedor.ruc}}</td>
+                <td>{{ proveedor.direccion}}</td>
+                <td>{{ proveedor.telefono}}</td>
+                <td>{{ proveedor.correo}}</td>
+                <td>
+                  <i class="fas fa-edit fa-lg text-info mr-2" [routerLink]="['/provideredit/', proveedor.id]"></i>
+                  <i (click)="eliminarProveedor(proveedor.id)" class="fas fa-trash-alt fa-lg text-danger" ></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+  <footer class="bg-red text-center text-white" style="height: 35px; width: 100%;">
+    <div class="text-center p-2" style="background-color: rgb(163, 14, 14); ">
+        © 2021
+        <a class="text-white" href="https://mdbootstrap.com/" style="margin-top: 5px;">LubricarSG</a>
+    </div>
+</footer>

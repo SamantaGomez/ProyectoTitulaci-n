@@ -1,0 +1,58 @@
+<nav class="navbar bg-red text-center text-white" style="background-color: rgb(163, 14, 14);">
+  <span class="navbar-brand mb-0 h1">Ventas</span>
+  <form class="form-inline">
+    <button class="btn btn-outline-light my-3 my-sm-0" routerLink="/userinfo">Regresar</button>
+  </form>
+</nav>
+
+<body>
+  <div class="container mt-4">
+    <div class="card" style="background-color: #dbdbdb;">
+      <div class="card-body">
+        <span class="h3">Listado de Ventas</span>
+        <button class="btn btn-outline-danger btn-lg float-right" routerLink="/salesadd">Agregar</button>
+        <br>
+        <h5 style="margin-top:5px;" *ngIf="ventas.length == 0">No hay datos para mostrar</h5>
+        <br>
+        <div class="input-wrapper">
+          <input type="text" class="input" placeholder="                   Buscar nombre de Cliente" (change)="buscar()" [(ngModel)]="palabrabuscar" style="margin-left: 30%; width: 400px;">       
+          <svg xmlns="http://www.w3.org/2000/svg" class="input-icon" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+          </svg>
+        </div>
+        
+        <table *ngIf="ventas.length > 0" class="table table-striped mt-2">
+          <thead>
+            <tr>
+              <th>Fecha emisión</th>
+              <th>Cliente</th>
+              <th>total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let venta of ventas | filtrocliente:palabrabuscar: 'idCliente'">
+              <td>{{ venta.fechacreacion}}</td>
+              <th>{{venta.idCliente}}</th>
+              <td>{{ venta.total| currency}}</td>
+              <td>
+
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000" class="svgpdf" title="Descargar PDF" (click)="GenerarPDF(venta)">
+                  <path d="M0 0h24v24H0V0z" fill="none" />
+                  <path
+                    d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm12 6V9c0-.55-.45-1-1-1h-2v5h2c.55 0 1-.45 1-1zm-2-3h1v3h-1V9zm4 2h1v-1h-1V9h1V8h-2v5h1zm-8 0h1c.55 0 1-.45 1-1V9c0-.55-.45-1-1-1H9v5h1v-2zm0-2h1v1h-1V9z" />
+                </svg>
+                <i (click)="eliminarVenta(venta.id)" class="fas fa-trash-alt fa-lg text-danger"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+<footer class="bg-red text-center text-white" style="height: 35px; width: 100%;">
+  <div class="text-center p-2" style="background-color: rgb(163, 14, 14); ">
+    © 2021
+    <a class="text-white" href="https://mdbootstrap.com/" style="margin-top: 5px;">LubricarSG</a>
+  </div>
+</footer>

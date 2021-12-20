@@ -1,0 +1,41 @@
+footer {
+  position: fixed;
+  bottom: 0; 
+  width: 100%;
+  }
+  i {
+    cursor: pointer;
+  }
+
+  .svgpdf{
+    margin: 0 5px;
+    fill: #A30E0E;
+  }
+  .svgpdf:hover{
+    cursor: pointer;
+    fill: #a30e0e81;
+  }
+  .svgpdf{
+    font-family: FontAwesome, "Open Sans", Verdana, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+}
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.input {
+
+  padding: 8px 8px 8px 35px;
+}
+.input-icon {
+ 
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 31%;
+  top: 50%;
+  transform: translateY(-50%);
+}

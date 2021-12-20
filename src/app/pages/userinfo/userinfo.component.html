@@ -1,0 +1,59 @@
+<nav class="navbar bg-red text-center text-white" style="background-color: rgb(163, 14, 14);width: 100%;">
+    <span class="navbar-brand mb-0 h1">Lubricar SG</span>
+    <form class="form-inline">
+        <button class="btn btn-outline-light my-3 my-sm-0" (click)="authservice.singout()">Salir</button>
+    </form>
+</nav>
+<br>
+<br>
+<img class="lo1" src="/assets/img/logo.png" alt="..">
+<br>
+<br>
+<div class="conteiner-fluid" >
+    <div class="row">
+        <div class="col-1" style="margin-left: 15px;">
+
+        </div>
+        <div class="col-2" *ngIf="usuario.rol=='Admin'">
+            <div class="imgpro" routerLinkActive="active">
+                <a [routerLink]="['/paysheet']">
+                    <img width="170px" height="170px" src="../../../assets/img/1.png">
+                </a>
+            </div>
+        </div>
+        <div class="col-2" *ngIf="usuario.rol=='Admin'">
+            <div class="imgpro" routerLinkActive="active">
+                <a [routerLink]="['/providerlist']">
+                    <img width="170px" height="170px" src="../../../assets/img/3.png">
+                </a>
+            </div>
+        </div>
+        <div class="col-2" *ngIf="usuario.rol=='Admin'||usuario.rol=='Admin'">
+            <div class="imgpro" routerLinkActive="active">
+                <a [routerLink]="['/stockoptions']">
+                    <img width="170px" height="170px" src="../../../assets/img/4.png">
+                </a>
+            </div>
+        </div>
+        <div class="col-2" *ngIf="usuario.rol=='Admin'||usuario.rol=='Vendedor'">
+            <div class="imgpro" routerLinkActive="active">
+                <a [routerLink]="['/saleslist']">
+                    <img width="170px" height="170px" src="../../../assets/img/5.png">
+                </a>
+            </div>
+        </div>
+        <div class="col-2"  *ngIf="usuario.rol=='Admin'||usuario.rol=='Vendedor'">
+            <div class="imgpro" routerLinkActive="active">
+                <a [routerLink]="['/customerlist']">
+                    <img width="170px" height="170px" src="../../../assets/img/2.png">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="bg-red text-center text-white" style="height: 35px; width: 100%;">
+    <div class="text-center p-2" style="background-color: rgb(163, 14, 14); ">
+        © 2021
+        <a class="text-white" href="https://mdbootstrap.com/" style="margin-top: 5px;">LubricarSG</a>
+    </div>
+</footer>
